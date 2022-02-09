@@ -10,8 +10,8 @@ interface footerProps {
 const Footer = (props: footerProps) => {
   const { author, website } = props;
   return (
-    <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
-      <footer className='absolute bottom-2 text-gray-700'>
+    <div className=' flex  items-center justify-center text-center'>
+      <footer className='bottom-4px absolute text-gray-700'>
         {`© ${new Date().getFullYear()} By `}
         <UnderlineLink href={website}>{author}</UnderlineLink>
       </footer>
