@@ -48,7 +48,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^1.1.5",
-    "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.7",
     "lint-staged": "^11.2.6",
@@ -63,7 +62,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,}": [
-      "eslint --max-warnings=0",
+      "eslint --max-warnings=5",
       "prettier -w"
     ],
     "src/**/*.{json,css,scss,md}": [
