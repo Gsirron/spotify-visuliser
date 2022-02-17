@@ -1,21 +1,28 @@
-import Instructions from '@/components/dom/Instructions'
 import dynamic from 'next/dynamic'
-
-const Box = dynamic(() => import('@/components/canvas/Box'), {
+import { Box, Flex, Container, Heading, VStack } from '@chakra-ui/react'
+import Link from 'next/link'
+const Box2 = dynamic(() => import('@/components/canvas/Box'), {
   ssr: false,
 })
 
 const DOM = () => {
   return (
     // Step 5 - delete Instructions components
-    <Instructions />
+    <Flex>
+      <Box as={Container} maxW={'5xl'}>
+        <VStack justifyContent={'center'}>
+          <Heading>Spotify app</Heading>
+          <Link href={'box'}>click to go box</Link>
+        </VStack>
+      </Box>
+    </Flex>
   )
 }
 
 const R3F = () => {
   return (
     <>
-      <Box route='/' />
+      <Box2 route='/' />
     </>
   )
 }

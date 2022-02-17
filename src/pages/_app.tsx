@@ -6,6 +6,7 @@ import Dom from '@/components/layout/dom'
 import partition from '@/helpers/partition'
 import '@/styles/index.css'
 import dynamic from 'next/dynamic'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
   ssr: false,
@@ -33,12 +34,14 @@ function App({ Component, pageProps = { title: 'index' } }) {
 
   return (
     <>
-      <Header title={pageProps.title} />
-      {child && child.length > 1 ? (
-        <Balance child={Component(pageProps).props.children} />
-      ) : (
-        <Component {...pageProps} />
-      )}
+      <ChakraProvider>
+        <Header title={pageProps.title} />
+        {child && child.length > 1 ? (
+          <Balance child={Component(pageProps).props.children} />
+        ) : (
+          <Component {...pageProps} />
+        )}
+      </ChakraProvider>
     </>
   )
 }
