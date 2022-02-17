@@ -11,8 +11,8 @@ const DOM = () => {
     <Flex>
       <Box as={Container} maxW={'5xl'}>
         <VStack justifyContent={'center'}>
-          <Heading>Spotify app</Heading>
-          <Link href={'box'}>click to go box</Link>
+          <Heading>Box app</Heading>
+          <Link href={'/'}>click to go box</Link>
         </VStack>
       </Box>
     </Flex>

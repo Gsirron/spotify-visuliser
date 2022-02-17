@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic'
 import Instructions from '@/components/dom/Instructions'
 import { Box, Flex, Container, Heading, VStack } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useSession, signIn, signOut } from 'next-auth/react'
+import SideBar from '@/components/layout/header/sidebarcomponents/SideBar'
+
 // import Shader from '@/components/canvas/Shader/Shader'
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
@@ -15,10 +18,10 @@ const Shader = dynamic(() => import('@/components/canvas/Shader/Shader'), {
 
 // dom components goes here
 const DOM = () => {
+  const { data: session } = useSession()
   return (
-    // Step 5 - delete Instructions components
     <Flex>
-      <Box as={Container} maxW={'5xl'}>
+      <Box as={Container} maxW={'5xl'} pt={'50vh'}>
         <VStack justifyContent={'center'}>
           <Heading>Spotify app</Heading>
           <Link href={'box'}>click to go box</Link>
@@ -30,7 +33,11 @@ const DOM = () => {
 
 // canvas components goes here
 const R3F = () => {
-  return <></>
+  return (
+    <>
+      <Shader />
+    </>
+  )
 }
 
 const Page = () => {

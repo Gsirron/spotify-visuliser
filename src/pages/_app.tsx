@@ -7,6 +7,7 @@ import partition from '@/helpers/partition'
 import '@/styles/index.css'
 import dynamic from 'next/dynamic'
 import { ChakraProvider } from '@chakra-ui/react'
+import { SessionProvider } from 'next-auth/react'
 
 const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
   ssr: false,
@@ -23,7 +24,7 @@ const Balance = ({ child }) => {
   )
 }
 
-function App({ Component, pageProps = { title: 'index' } }) {
+function App({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter()
 
   useEffect(() => {
@@ -34,14 +35,16 @@ function App({ Component, pageProps = { title: 'index' } }) {
 
   return (
     <>
-      <ChakraProvider>
-        <Header title={pageProps.title} />
-        {child && child.length > 1 ? (
-          <Balance child={Component(pageProps).props.children} />
-        ) : (
-          <Component {...pageProps} />
-        )}
-      </ChakraProvider>
+      <SessionProvider session={session}>
+        <ChakraProvider>
+          <Header title={pageProps.title} />
+          {child && child.length > 1 ? (
+            <Balance child={Component(pageProps).props.children} />
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </ChakraProvider>
+      </SessionProvider>
     </>
   )
 }
