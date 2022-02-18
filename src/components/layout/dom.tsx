@@ -10,10 +10,7 @@ const Dom = ({ children }) => {
   }, [])
 
   return (
-    <Box
-      className='absolute top-0 left-0 z-10 w-screen h-screen overflow-hidden dom'
-      ref={ref}
-    >
+    <Box className='absolute top-0 left-0 z-10 w-screen h-screen dom' ref={ref}>
       {children}
     </Box>
   )

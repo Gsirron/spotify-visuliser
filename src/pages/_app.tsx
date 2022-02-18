@@ -8,6 +8,7 @@ import '@/styles/index.css'
 import dynamic from 'next/dynamic'
 import { ChakraProvider } from '@chakra-ui/react'
 import { SessionProvider } from 'next-auth/react'
+import SideBar from '@/components/layout/header/sidebarcomponents/SideBar'
 
 const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
   ssr: false,
