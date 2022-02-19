@@ -33,11 +33,13 @@ const DOM = () => {
     return (
       <Flex>
         <Box as={Container} maxW={'5xl'} mt={'25vh'}>
-          <Heading>Spotify Visualiser</Heading>
-          <Text>Logged in as {session?.token?.email}</Text>
-          <Button onClick={() => signOut()} bgColor={'green.600'}>
-            sign Out
-          </Button>
+          <VStack justifyContent={'center'} spacing={'20px'}>
+            <Heading>Spotify Visualiser</Heading>
+            <Text>Logged in as {session?.token?.email}</Text>
+            <Button onClick={() => signOut()} bgColor={'green.600'}>
+              sign Out
+            </Button>
+          </VStack>
         </Box>
       </Flex>
     )
